@@ -1,38 +1,34 @@
 .input-container {
     position: relative;
     display: inline-block;
+    padding: 10;
+}
+
+.input-container input {
+    width: 631px;
+    height: 64px;
 }
 
 .rotatingBorder {
-    padding: 10px;
-    border: 6px solid transparent; /* Устанавливаем границу, но делаем её прозрачной */
-    border-radius: 8px;
+    margin: 10px;
+    border: 6px solid transparent; /* Прозрачная граница */
+    border-radius: 6px;
     outline: none;
     font-size: 16px;
-    position: relative;
-    z-index: 1; /* Устанавливаем элемент поверх */
-    background-clip: padding-box; /* Отсекаем фон под padding */
+    background-image: 
+        linear-gradient(white, white), /* Фон внутри */
+        linear-gradient(90deg, hwb(60 1% 4%), hsl(292, 96%, 48%), hsl(177, 94%, 43%));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-size: 100% 100%, 200% 200%;
+    animation: animate-border 4s linear infinite;
 }
 
-.input-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #06beb6, #ed7bdc, #e1f40c);
-    background-size: 200% 200%;
-    z-index: -1; /* Отображаем псевдоэлемент под input */
-    animation: rotate-gradient 4s linear infinite;
-}
-
-@keyframes rotate-gradient {
+@keyframes animate-border {
     0% {
-        background-position: 0% 50%;
+        background-position: 0% 50%, 0% 50%;
     }
     100% {
-        background-position: 200% 50%;
+        background-position: 100% 50%, 100% 50%;
     }
 }
