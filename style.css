@@ -1,0 +1,92 @@
+/* .input-container {
+    position: relative;
+    display: inline-block;
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+}
+
+#rotatingBorder {
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    position: relative;
+    z-index: 2;
+}
+
+.input-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #06beb6, #48b1bf, #06beb6);
+    background-size: 200% 200%;
+    z-index: 1;
+    animation: rotate-gradient 4s linear infinite;
+}
+
+@keyframes rotate-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+} */
+
+div {
+    width: 100%;
+    margint: 30px auto;
+    display: flex;
+}
+
+.rotating-border {
+    position: relative;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+  }
+  
+  .rotating-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    padding: 4px; /* Толщина рамки */
+    background: linear-gradient(90deg, #06beb6, #48b1bf, #06beb6);
+    background-size: 200% 200%;
+    animation: rotate-gradient 4s linear infinite;
+  }
+  
+  .rotating-border::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: white;
+    border-radius: 6px;
+    z-index: 1;
+  }
+  
+  @keyframes rotate-gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+  
